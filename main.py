@@ -69,6 +69,43 @@ class Browser(QMainWindow):
         self.show()
         self.setWindowIcon(QIcon(os.path.join("icon.ico")))
 
+        # Застосування стилів для кольорової схеми IE8
+        self.setStyleSheet("""
+            QMainWindow {
+                background-color: #F0F0F0;
+            }
+            QToolBar {
+                background-color: #E0E0E0;
+                border: 1px solid #A0A0A0;
+            }
+            QTabWidget::pane {
+                border: 1px solid #A0A0A0;
+            }
+            QTabBar::tab {
+                background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                            stop:0 #E0FFFF, stop:1 #B0E0E6);
+                border: 1px solid #A0A0A0;
+                padding: 5px;
+                border-radius: 5px 5px 0 0;
+            }
+            QTabBar::tab:selected {
+                background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                            stop:0 #d2f0fa, stop:1 #a3dcff);
+                border-bottom: 1px solid #FFFFFF;
+            }
+            QLineEdit {
+                background: #FFFFFF;
+                border: 1px solid #A0A0A0;
+                padding: 5px;
+            }
+            QLabel {
+                color: #000000;
+            }
+            QAction {
+                color: #000000;
+            }
+        """)
+        
     def add_new_tab(self, qurl=QUrl("http://newtab.kesug.com/"), label="blank"):
         browser = QWebEngineView()
         browser.settings().setAttribute(QWebEngineSettings.ScrollAnimatorEnabled, True)
@@ -105,7 +142,41 @@ class Browser(QMainWindow):
         self.setWindowTitle(f"{title} - Internet Surfer")
 
     def info(self):
-        QMessageBox.about(self, "Інформація", "Internet Surfer 1 \nCopyright Huliak Markiian")
+        msgBox = QMessageBox(self)
+        msgBox.setWindowTitle("Про Internet Surfer")
+        
+        # Створення віджета для вмісту
+        content_widget = QWidget()
+        layout = QVBoxLayout()
+
+        # Додавання логотипу
+        logo_label = QLabel()
+        pixmap = QPixmap('icon_info.png')  # Додайте свій логотип
+        logo_label.setPixmap(pixmap)
+        layout.addWidget(logo_label)
+        
+        
+        
+        # Додавання тексту
+        text_label = QLabel("Version: 1.0.5\nCipher Strength: 128-bit\nProduct ID: 12345-67890\nUpdate Versions:; SP1;")
+        layout.addWidget(text_label)
+
+        # Додавання текстового поля для введення, яке є неактивним
+        text_edit = QTextEdit()
+        text_edit.setText("Based on NCSA Mosaic. NCSA Mosaic(TM) was developed at the National Center for Supercomputing Applications at the University of Illinois at Urbana-Champaign.")
+        text_edit.setReadOnly(True)
+        layout.addWidget(text_edit)
+        
+        text_label2 = QLabel("Copyright © 2024 Guljak Corporation")
+        layout.addWidget(text_label2)
+
+        content_widget.setLayout(layout)
+        msgBox.layout().addWidget(content_widget)
+
+        msgBox.setStyleSheet("QMessageBox {background-color: #f0f0f0; font-size: 14px;}"
+                             "QLabel {color: #333333;}"
+                             "QTextEdit {background-color: #f0f0f0; border: none;}")
+        msgBox.exec_()
 
     def nav_home(self):
         self.tab_widget.currentWidget().setUrl(QUrl("http://newtab.kesug.com/"))
