@@ -33,11 +33,6 @@ class Browser(QMainWindow):
         next_btn.triggered.connect(lambda: self.tab_widget.currentWidget().forward())
         qtoolbar.addAction(next_btn)
 
-        reload_btn = QAction(QIcon(os.path.join("img", "reload.png")), "Перезаватнажити", self)
-        reload_btn.setStatusTip("Перезавантажити")
-        reload_btn.triggered.connect(lambda: self.tab_widget.currentWidget().reload())
-        qtoolbar.addAction(reload_btn)
-
         home_btn = QAction(QIcon(os.path.join("img", "home.png")), "Додому", self)
         home_btn.setStatusTip("Додому")
         home_btn.triggered.connect(lambda: self.nav_home())
@@ -52,7 +47,12 @@ class Browser(QMainWindow):
         self.url_line = QLineEdit()
         self.url_line.returnPressed.connect(self.nav_to_url)
         qtoolbar.addWidget(self.url_line)
-
+        
+        reload_btn = QAction(QIcon(os.path.join("img", "reload.png")), "Перезаватнажити", self)
+        reload_btn.setStatusTip("Перезавантажити")
+        reload_btn.triggered.connect(lambda: self.tab_widget.currentWidget().reload())
+        qtoolbar.addAction(reload_btn)
+        
         new_tab_btn = QAction(QIcon(os.path.join("img", "plus.png")), "Нова вкладка", self)
         new_tab_btn.setStatusTip("Нова вкладка")
         new_tab_btn.triggered.connect(lambda: self.add_new_tab())
@@ -72,30 +72,31 @@ class Browser(QMainWindow):
         # Застосування стилів для кольорової схеми IE8
         self.setStyleSheet("""
             QMainWindow {
-                background-color: #F0F0F0;
+                background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                            stop:0 #f2f7fd, stop:1 #e3eefb);
             }
             QToolBar {
-                background-color: #E0E0E0;
-                border: 1px solid #A0A0A0;
+                background-color: rgba(126, 169, 232, 0.7);
+                border: 1px solid #a3a7ac;
             }
             QTabWidget::pane {
                 border: 1px solid #A0A0A0;
             }
             QTabBar::tab {
-                background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-                                            stop:0 #E0FFFF, stop:1 #B0E0E6);
-                border: 1px solid #A0A0A0;
+                background: #ffffff;
+                border: 1px solid #a3a7ac;
                 padding: 5px;
                 border-radius: 5px 5px 0 0;
             }
             QTabBar::tab:selected {
                 background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-                                            stop:0 #d2f0fa, stop:1 #a3dcff);
-                border-bottom: 1px solid #FFFFFF;
+                                            stop:0 #c3ddfb, stop:1 #ffffff);
+                border-bottom: 1px solid #a3a7ac;
             }
             QLineEdit {
-                background: #FFFFFF;
-                border: 1px solid #A0A0A0;
+                background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                            stop:0 #ced9eb, stop:1 #cdd9eb);
+                border: 1px solid #98a1a6;
                 padding: 5px;
             }
             QLabel {
@@ -167,7 +168,7 @@ class Browser(QMainWindow):
         text_edit.setReadOnly(True)
         layout.addWidget(text_edit)
         
-        text_label2 = QLabel("Copyright © 2024 Guljak Corporation")
+        text_label2 = QLabel("Copyright © 2024 Guljak Corp.")
         layout.addWidget(text_label2)
 
         content_widget.setLayout(layout)
