@@ -4,16 +4,22 @@
 
 This repo contains the original source-code and compiled binaries for Internet Surfer v1.5
 
-# License
+## License
 
 All files within this repo are released under the [MIT License]( https://en.wikipedia.org/wiki/MIT_License) as per the [LICENSE file](https://github.com/GuljakMarkijan/Internet-Surfer/blob/main/LICENSE) stored in the root of this repo.
 
-# Please
+## Please
 
 Please **don’t send** Pull Requests suggesting any modifications to the source files, but feel free to fork this repo and experiment 😊.  
 
 
-# Logos
+## Logos
 
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+Use of logos in modified versions of this project must not cause confusion or imply sponsorship.
+Any use of third-party logos are subject to those third-party's policies.
+
+## Download
+
+For 32-bit - https://drive.google.com/drive/folders/13QGZG6k3nApkVSJFkWFAGOZbqEcEte8S?usp=sharing
+####
+For 64-bit - https://drive.google.com/drive/folders/13CTgRZMKfc9ShmySSINNher3SEFrHVNm?usp=sharing
