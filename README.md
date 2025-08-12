@@ -6,7 +6,7 @@ This repo contains the original source-code and compiled binaries for Internet S
 
 ## License
 
-All files within this repo are released under the [GNU License]( https://en.wikipedia.org/wiki/MIT_License) as per the [LICENSE file](https://github.com/GuljakMarkijan/Internet-Surfer/blob/main/LICENSE) stored in the root of this repo.
+All files within this repo are released under the [GNU License]( https://uk.wikipedia.org/wiki/GNU_General_Public_License) as per the [LICENSE file](https://github.com/GuljakMarkijan/Internet-Surfer/blob/main/LICENSE) stored in the root of this repo.
 
 ## Please
 
