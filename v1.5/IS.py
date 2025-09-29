@@ -69,7 +69,6 @@ class Browser(QMainWindow):
         self.show()
         self.setWindowIcon(QIcon(os.path.join("icon.ico")))
 
-        # Застосування стилів для кольорової схеми
         self.setStyleSheet("""
             QMainWindow {
                 background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
@@ -146,20 +145,15 @@ class Browser(QMainWindow):
         msgBox = QMessageBox(self)
         msgBox.setWindowTitle("Про Internet Surfer")
         
-        # Створення віджета для вмісту
         content_widget = QWidget()
         layout = QVBoxLayout()
 
-        # Додавання логотипу
         logo_label = QLabel()
-        pixmap = QPixmap('icon_info.png')  # логотип
+        pixmap = QPixmap('icon_info.png')
         logo_label.setPixmap(pixmap)
         layout.addWidget(logo_label)
         
-        
-        
-        # Додавання тексту
-        text_label = QLabel("Version: 1.0.5\nCipher Strength: 128-bit\nProduct ID: 12345-67890\nUpdate Versions:; SP1;")
+        text_label = QLabel("Version 1.0.6\nCipher Strength: 128-bit\nProduct ID: 12345-67890\nUpdate Versions:; SP1;")
         layout.addWidget(text_label)
         
         text_label2 = QLabel("Copyright © 2024 Guljak Markijan")
